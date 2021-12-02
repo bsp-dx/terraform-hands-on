@@ -1,3 +1,7 @@
+data "aws_route53_zone" "this" {
+  name = module.ctx.domain
+}
+
 data "aws_acm_certificate" "this" {
   domain = module.ctx.domain
 }

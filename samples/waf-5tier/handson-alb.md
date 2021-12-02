@@ -56,7 +56,7 @@ Public ALB 전요 보안 그룹을 생성 합니다.
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd samples/waf-vpc5tier/alb-waf
+cd terraform-hands-on/samples/waf-5tier/alb-waf
 
 terraform init
 terraform plan
@@ -78,7 +78,7 @@ Internal ALB 전용 보안 그룹을 생성 합니다.
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd samples/waf-vpc5tier/alb-web
+cd terraform-hands-on/samples/waf-5tier/alb-web
 
 terraform init
 terraform plan
@@ -98,7 +98,7 @@ Internal NLB 의 이름은 was 로 정의 하고, lbwas 서브넷과 연결 되�
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd samples/waf-vpc5tier/nlb-was
+cd terraform-hands-on/samples/waf-5tier/nlb-was
 
 terraform init
 terraform plan

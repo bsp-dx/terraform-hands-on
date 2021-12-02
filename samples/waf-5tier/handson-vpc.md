@@ -43,7 +43,7 @@ VPC 서비스를 구성하는 주요 리소스는 다음과 같습니다.
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd samples/waf-vpc5tier/vpc
+cd terraform-hands-on/samples/waf-5tier/vpc
 
 terraform init
 terraform plan

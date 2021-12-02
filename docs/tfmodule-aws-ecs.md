@@ -49,7 +49,7 @@ module "ecs_fargate" {
 | default_capacity_provider_strategy | 클러스터에 기본적으로 사용할 capacity_providers 전략입니다. | list(map(any)) | {} | No |
 | enable_lifecycle_policy | 리포지토리에 수명 주기 정책의 추가 여부를 설정 합니다. | bool | false| No |
 | scan_images_on_push | 이미지가 저장소로 푸시된 후 스캔 여부를 설정 합니다. | bool | true| No |
-| principals_full     | ECR 저장소의 전체 액세스 권한을 가지는 IAM 리소스 ARN 입니다. | list(string) | ["arn:aws:iam::111111:user/apple_arn","arn:aws:iam::111111:role/admin_arn"] | No |
+| principals_full     | ECR 저장소의 전체 액세스 권한을 가지는 IAM 리소스 ARN 입니다. | list(string) | ["arn:aws:iam::111111:user/apple_arn", "arn:aws:iam::111111:role/admin_arn"] | No |
 | principals_readonly | ECR 저장소의 읽기 전용 IAM 리소스 ARN 입니다. | list(string) | ["*"] | No |
 | tags | ECR 저장소의 태그 속성을 정의 합니다. | obejct({}) | <pre>{<br>    Project = "simple"<br>    Environment = "Test"<br>    Team = "DX"<br>    Owner = "symplesims@email.com"<br>}</pre> | Yes |
 | name | ECS 클러스터 이름을 정의 합니다. | string | - | No |

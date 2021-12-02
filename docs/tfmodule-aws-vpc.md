@@ -165,7 +165,7 @@ resource "aws_vpn_connection_route" "azure" {
 
 ## Input Variables
 
-| Name | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type | Example | Required |
+| Name | Description | Type | Example | Required |
 |------|-------------|------|---------|:--------:|
 | create_vpc | VPC 를 생성할지 여부입니다. | bool | true | No |
 | cidr       | VPC CIDR 블럭을 정의 합니다. | string | "172.11.0.0/16"| Yes |
@@ -231,6 +231,8 @@ resource "aws_vpn_connection_route" "azure" {
 | flow_log_cloudwatch_log_group_retention_in_days | VPC Flow Logs 용 Cloud CloudWatch 로그 그룹의 데이터 보관일 수 입니다. | number | 90 | No |
 | flow_log_cloudwatch_log_group_kms_key_id | VPC Flow Logs 용 Cloud CloudWatch 로그 그룹 적재에 사용할 KMS 암호화 키 입니다. | string | - | No |
 | flow_log_max_aggregation_interval | VPC Flow Logs 의 최대 수집 간격 입니다. | number | 600 | No |
+| _____________________________________ | ____________________________________________________ | _ | _ | _ |
+ 
 
 ## Outputs
 

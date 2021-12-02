@@ -34,26 +34,79 @@ ALB 를 구성하는 주요 리소스는 다음과 같습니다.
 
 
 ## Code
-- [alb/data.tf](./alb/data.tf) - 로드 밸런서를 구성 하기 위한 VPC 및 서브 네트워크를 데이터 소스로 참조 합니다. 
-- [alb/alb-pub.tf](./alb/alb-pub.tf) - Public ALB 를 구성 합니다. 
-- [alb/alb-web.tf](./alb/alb-web.tf) - Internal ALB 를 구성 합니다.
-- [alb/alb-web.tf](./alb/nlb-was.tf) - Internal NLB 를 구성 합니다.
-- [alb/providers.tf](./alb/providers.tf) - Terraform 버전과 AWS 프로바이더를 정의 합니다. 
-- [alb/variables.tf](./alb/variables.tf) - vpc_cidr 변수를 정의 합니다. 
+- [alb-waf/main.tf](alb-waf/main.tf) - Public ALB 구성 정보를 정의 합니다.
+- [alb-waf/data.tf](alb-waf/data.tf) - Public ALB 를 구성 하기 위한 데이터 소스를 정의 합니다.
+- [alb-web/main.tf](alb-web/main.tf) - Internal ALB 구성 정보를 정의 합니다.
+- [alb-web/data.tf](alb-web/data.tf) - Internal ALB 를 구성 하기 위한 데이터 소스를 정의 합니다.
+- [nlb-was/main.tf](nlb-was/main.tf) - Internal NLB 구성 정보를 정의 합니다.
+- [nlb-was/data.tf](nlb-was/data.tf) - Internal NLB 를 구성 하기 위한 데이터 소스를 정의 합니다.
 
 
-## Build
+## Public ALB
+Public ALB 의 이름은 waf 라로 정의 하고, public 서브넷과 연결 되어야 합니다.  
+Public ALB 전요 보안 그룹을 생성 합니다.  
+유입되는 정상적인 트래픽은 web-80tg 대상 그룹으로 전달 합니다.
 
-[tfmodule-aws-alb](../../docs/tfmodule-aws-alb.md) 테라폼 모듈을 통해 로드 밸런서(ALB / NLB) 리소스를 Provisioning 합니다.
+- Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, ACM 대해 데이터 소스를 참조 합니다.
+- [data.tf](./alb-waf/data.tf) : WAF Public ALB 가 참조하는 데이터 소스 
+- [main.tf](./alb-waf/main.tf) : WAF Public ALB 리소스 생성
+
+
+### Build Public ALB
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd samples/waf-vpc5tier/alb
+cd samples/waf-vpc5tier/alb-waf
 
 terraform init
 terraform plan
 terraform apply
 ```
+
+
+## Internal ALB
+Internal ALB 의 이름은 web 으로 정의 하고, lbweb 서브넷과 연결 되어야 합니다.  
+유입되는 네트워크 트래픽은 web-80tg 대상 그룹으로 전달 합니다.
+Internal ALB 전용 보안 그룹을 생성 합니다. 
+
+- Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, Security Group 에 대해 데이터 소스를 참조 합니다.
+- [data.tf](./alb-web/data.tf) : WAF Public ALB 가 참조하는 데이터 소스
+- [main.tf](./alb-web/main.tf) : WAF Public ALB 리소스 생성
+
+
+### Build Internal ALB
+
+```shell
+git clone https://github.com/bsp-dx/terraform-hands-on.git
+cd samples/waf-vpc5tier/alb-web
+
+terraform init
+terraform plan
+terraform apply
+```
+
+
+## Internal NLB
+Internal NLB 의 이름은 was 로 정의 하고, lbwas 서브넷과 연결 되어야 합니다.  
+네트워크 트래픽 중 8080 포트는로 유입되는 데이터는 was-8080tg 대상 그룹으로, 3306 포트로 유입되는 데이터는 rds-3306 대상 그룹으로 각각 전달 합니다.
+
+- Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, Security Group 에 대해 데이터 소스를 참조 합니다.
+- [data.tf](./alb-web/data.tf) : WAF Public ALB 가 참조하는 데이터 소스
+- [main.tf](./alb-web/main.tf) : WAF Public ALB 리소스 생성
+
+### Build Internal NLB
+
+```shell
+git clone https://github.com/bsp-dx/terraform-hands-on.git
+cd samples/waf-vpc5tier/nlb-was
+
+terraform init
+terraform plan
+terraform apply
+```
+
+
+
 
 ALB 구성은 [tfmodule-aws-alb](../../docs/tfmodule-aws-alb.md) 테라폼 모듈을 참고 하세요.
 ----------

@@ -6,20 +6,20 @@ module "ctx" {
 module "alb_public" {
   source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-aws-alb"
 
-  context  = module.ctx.context
-  lb_name = "waf"
+  context            = module.ctx.context
+  lb_name            = "waf"
   load_balancer_type = "application"
 
   vpc_id          = data.aws_vpc.this.id
   subnets         = data.aws_subnet_ids.public.ids
-  security_groups = [ aws_security_group.public_alb.id ]
+  security_groups = [aws_security_group.public_alb.id]
 
   target_groups = [
     {
-      name                 = "waf-tg80"
-      backend_protocol     = "HTTP"
-      backend_port         = 80
-      target_type          = "ip"
+      name             = "waf-tg80"
+      backend_protocol = "HTTP"
+      backend_port     = 80
+      target_type      = "ip"
     },
   ]
 
@@ -36,24 +36,32 @@ module "alb_public" {
     {
       https_listener_index = 0
       priority             = 1
-      actions = [{
+      actions              = [
+        {
           type               = "forward"
           target_group_index = 0
-        }]
-      conditions = [{
-        path_patterns = ["/*"]
-      }]
+        }
+      ]
+      conditions           = [
+        {
+          path_patterns = ["/*"]
+        }
+      ]
     },
     {
       https_listener_index = 0
       priority             = 2
-      actions = [{
-          type = "forward",
+      actions              = [
+        {
+          type               = "forward",
           target_group_index = 0
-        }]
-      conditions = [{
-        host_headers = [ format("web.%s", module.ctx.domain) ]
-      }]
+        }
+      ]
+      conditions           = [
+        {
+          host_headers = [format("web.%s", module.ctx.domain)]
+        }
+      ]
     },
   ]
 
@@ -62,7 +70,7 @@ module "alb_public" {
       port        = 80
       protocol    = "HTTP"
       action_type = "redirect"
-      redirect = {
+      redirect    = {
         port        = "443"
         protocol    = "HTTPS"
         status_code = "HTTP_301"

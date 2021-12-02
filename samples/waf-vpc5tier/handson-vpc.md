@@ -28,12 +28,7 @@ VPC 서비스를 구성하는 주요 리소스는 다음과 같습니다.
 | VPC               | Security Group        | VPC 를 위한 기본 security_group 을 구성 합니다. |
 
 * web 및 api 를 위한 별도의 로드 밸런서용 Sub-network 를 두는 이유는 한정된 Private-IP 로 인해 로드 밸런서가 부하에 대응하여 확장되지 못하는 위험을 사전에 방지하기 위함 입니다.
- 
 
-
-| VPC               | ALB                   | internet facing 을 위한 ALB 를 구성 합니다. |   
-| VPC               | ALB                   | 애플리케이션 서비스 분산을 위한 Internal ALB 를 구성 합니다. |   
-| VPC               | NLB                   | 애플리케이션 서비스 분산을 위한 Internal NLB 를 구성 합니다. |   
 
 ## Code
 - [vpc/main.tf](./vpc/main.tf) - tfmodule-aws-vpc 모듈을 임포트 하여 VPC 를 구성 합니다. 

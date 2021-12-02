@@ -2,16 +2,16 @@ module "ctx" {
   source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-context"
 
   context = {
-    aws_profile  = "terran"
-    region       = "ap-northeast-2"
-    project      = "apple5t"
-    environment  = "VPC-1Tier"
-    owner        = "owner.dx@bespinglobal.com"
-    team_name    = "Devops Transformation"
-    team         = "DX"
-    cost_center  = "20211129"
-    domain       = "simitsme.ml"
-    pri_domain   = "apple5t.local"
+    aws_profile = "terran"
+    region      = "ap-northeast-2"
+    project     = "apple5t"
+    environment = "VPC-1Tier"
+    owner       = "owner.dx@bespinglobal.com"
+    team_name   = "Devops Transformation"
+    team        = "DX"
+    cost_center = "20211129"
+    domain      = "simitsme.ml"
+    pri_domain  = "apple5t.local"
   }
 }
 

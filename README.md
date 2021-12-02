@@ -23,3 +23,6 @@ VPC 및 로드 밸런서와 같은 주요한 리소스를 구성 합니다.
 #### [ALB 테라폼 모듈 참고](./docs/tfmodule-aws-alb.md)
 
 
+### Appendix
+
+#### [EC2 Keypair 등록 참고](./docs/aws-keypair.md)

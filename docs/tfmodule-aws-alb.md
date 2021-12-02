@@ -269,7 +269,7 @@ http_tcp_listener 리스너에 대한 라우팅 룰을 설정 합니다.
 | enable_deletion_protection | AWS API를 통해 로드 밸런서 삭제를 할 수 없도록 합니다. Terraform 등의 툴에 의해 로드 밸런서가 삭제하는 것을 방지할 수 있습니다. | bool | false | No |
 | enable_http2 | ALB 에 HTTP/2 프로토콜 지원을 활성화 합니다. | bool | true | No |
 | enable_cross_zone_load_balancing | ALB 에서 cross zone 부하 분산 지원 여부입니다. | bool | false | No |
-| extra_ssl_certs | HTTPS 리스너에 적용할 추가 SSL 인증서를 정의 합니다. | list(map(string)) | <pre>[<br>  {<br>    "certificate_arn"  = "arn:aws:acm:your: certificate/9390..."<br>    "https_listener_index" = "0"<br>  },<br>  {<br>    "certificate_arn" = "arn:aws:acm:your: certificate/a398f9ad..."<br>    "https_listener_index" = "0"<br>  },<br>]</pre> | No |
+| extra_ssl_certs | HTTPS 리스너에 적용할 추가 SSL 인증서를 정의 합니다. | list(map(string)) | <pre>[<br>  {<br>    "certificate_arn"  = "arn:aws:acm:your:certificate/9390..."<br>    "https_listener_index" = "0"<br>  },<br>  {<br>    "certificate_arn" = "arn:aws:acm:your:certificate/a398f9ad..."<br>    "https_listener_index" = "0"<br>  },<br>]</pre> | No |
 | http_tcp_listeners | ALB 에 대한 HTTP 리스너 또는 TCP 포트를 정의 합니다. | any | [sample](#http-listener-sample) | No |
 | http_tcp_listener_rules | ALB 에 대한 HTTP 리스너의 라우팅 규칙을 정의 합니다. | any | [sample](#http-listener-rules-sample) | No |
 | https_listener_rules  ALB 에 대한 HTTPS 리스너의 라우팅 규칙을 정의 합니다. | | any | [sample](#https-listener-rules-sample) | No |
@@ -281,7 +281,7 @@ http_tcp_listener 리스너에 대한 라우팅 룰을 설정 합니다.
 | load_balancer_type | 로드 밸런서 유형 입니다. 가능한 값은 `application` 또는 `network` 입니다. | string | "application" | No |
 | internal | Internal 내부 전용 로드 밸런서 여부입니다. | bool | false | No |
 | access_logs | 로드 밸런서 액세스 로그 설정 입니다. | map(string) | - | No |
-| subnets | 로드 밸런서와 연결 될 Subnet 아이디 입니다. | list(string) |['subnet-1a2b3c4d','subnet-1a2b3c4e','subnet-1a2b3c4f'] | No |
+| subnets | 로드 밸런서와 연결 될 Subnet 아이디 입니다. | list(string) |["subnet-1a2b3c4d", "subnet-1a2b3c4e", "subnet-1a2b3c4f"] | No |
 | subnet_mapping | 로드 밸런서와 연결 될 Subnet 및 할당된 EIP 를 정의 합니다. | list(map(string)) | <pre>[<br>  {<br>    subnet_id = "subnet-1a2b3c4d"<br>    allocation_id = "eipalloc-0e44fc50aaea6"<br>  },<br>  {<br>    subnet_id = "subnet-1a2b3c4e"<br>    allocation_id = "eipalloc-0e44fc50aaea6"<br>  }<br>]</pre> | No |
 | lb_tags | 로드 밸런서 태그 속성 입니다. | map(string) | {Key1 = "value1"} | No |
 | https_listeners_tags | ALB 의 HTTPS 리스너를 위한 태그 속성 입니다. | map(string) | {Key1 = "value1"} | No |

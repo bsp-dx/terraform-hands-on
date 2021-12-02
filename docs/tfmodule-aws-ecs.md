@@ -54,6 +54,7 @@ module "ecs_fargate" {
 | tags | ECR 저장소의 태그 속성을 정의 합니다. | obejct({}) | <pre>{<br>    Project = "simple"<br>    Environment = "Test"<br>    Team = "DX"<br>    Owner = "symplesims@email.com"<br>}</pre> | Yes |
 | name | ECS 클러스터 이름을 정의 합니다. | string | - | No |
 | container_insights | ECS 클러스터의 컨테이너 정보를 식별하기 위해 CloudWatch 로그 그룹에 적재 할지 여부입니다. | bool | false | No |
+| __________________________________ | ______________________________________________________ | ___ | ___ | ___ |
 
  
 ## Output Values

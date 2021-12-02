@@ -1,30 +1,23 @@
 # AWS IAM 
+AWS 클라우드 서비스를 생성 및 관리 하기 위한 사용자 어카운트을 생성 합니다.
 
- 
-- AWS 어카운트가 준비 되어야 합니다.
-- HandsOn을 위한 MacOS 또는 Ubuntu 환경이 준비 되어야 합니다.
-- AWS CLI 및 Terraform 등 주요 프로그램이 사전에 설치 되어야 합니다.  
-  [주요 프로그램 설치 참고](./setup-macos.md)
-- 인터넷 서비스를 위해 도메인 등록 및 ACM 인증서를 발급 받아야 합니다.   
-  [도메인 및 인증서 발급 참고](./docs/domain-acm.md)
-
-### AWS 신규 사용자 추가
+## AWS 신규 사용자 추가
 최초 AWS 관리 콘솔에 로그인 하는 계정은 ROOT 어카운트 입니다.  
 ROOT 어카운트는 기본적으로 모든 권한이 부여된 계정이므로 보호된 액세스 정책을 기반으로 제한된 사용을 하여야 합니다.  
 따라서 실습을 위한 신규 어카운트를 생성 하고 진행 하도록 합니다.
 
 - "terran@bespinglobal.com" 신규 계정을 발급 합니다.
-  ![IAM-01](./docs/images/fireshot-20211117-001.png)
+  ![IAM-01](./images/fireshot-20211117-001.png)
 
 - 권한 설정 에서 '기존 정책 직접 연결'을 선택 하고 'AdministratorAccess' 를 선택 합니다.
-  ![IAM-02](./docs/images/fireshot-20211117-002.png)
+  ![IAM-02](./images/fireshot-20211117-002.png)
 - '다음: 태그', '다음: 검토' 단계를 거쳐  "사용자 만들기" 를 클릭하여 'terran@bespinglobal.com' 계정을 생성 합니다.
 
 - AWS AccessKey 정보  
   최종적으로 아래와 같이 'terran@bespinglobal.com' 사용자 인증 정보인 AccessKey 를 제공 합니다.  
   AWS 자원을 액세스하기 위한 id/password 와 동일한 Credential 정보 이므로 유출되지 않도록 신중하게 관리 되어야 합니다.  
   특히 email, github, 웹하드 등 인터넷상에 업로드 되지 않도록 신중을 기하여 관리해 주세요, 실수로 노출되게되면 해커의 공격으로 비용폭탄을 경험하게 될 수 있습니다.
-  ![IAM-03](./docs/images/fireshot-20211117-003.png)
+  ![IAM-03](./images/fireshot-20211117-003.png)
 
 
 ### AWS Profile 구성
@@ -79,10 +72,3 @@ aws iam list-users --query 'Users[].UserName'
     "terran@bespinglobal.com",
 ]
 ```
-
-## AWS 주요 서비스 구성 가이드
-테라폼 모듈을 통해 AWS 클라우드의 주요 서비스를 구성 합니다.
-
-1. AWS 클라우드의 기본 환경으로 [VPC 서비스](10-vpc/README.md)를 구성 합니다.
-2. AWS 쿠버네티스 클러스터 환경으로 [EKS 서비스](20-eks/README.md)를 구성 합니다.
-3. AWS [ECR 서비스](catalogue-ecr/README.md)를 구성 합니다.

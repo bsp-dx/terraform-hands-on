@@ -4,22 +4,15 @@
 ## Hands On Workflow
 다음의 순서대로 가이드를 참고 하세요.
 
-[로컬 개발 환경 구성 - Mac OS](./docs/setup-macos.md)
-----------
-
-[IAM 사용자 계정 추가](./docs/aws-iam.md)
-----------
-
-[Domain 발급 및 ACM 구성](./docs/aws-acm.md)
-----------
-
-[5 Tier VPC 표준 아키텍처 구성](./samples/waf-vpc5tier/handson-vpc.md) 
-----------
+## [로컬 개발 환경 구성 - Mac OS](./docs/setup-macos.md)
 
 
+## [IAM 사용자 계정 추가](./docs/aws-iam.md)
 
+## [Domain 발급 및 ACM 구성](./docs/aws-acm.md)
 
-## VPC 구성 가이드
-[VPC Terraform](./docs/aws-vpc.md) 가이드를 참고 합니다.
+## [5 Tier 표준 VPC 아키텍처 구성](./samples/waf-vpc5tier/handson-vpc.md) 
+VPC 및 로드 밸런서와 같은 주요한 리소스를 구성 합니다.
 
-### 
+### [VPC 테라폼 모듈 참고](./docs/tfmodule-aws-vpc.md)
+

@@ -70,8 +70,8 @@ Internal ALB 의 이름은 web 으로 정의 하고, lbweb 서브넷과 연결 �
 Internal ALB 전용 보안 그룹을 생성 합니다. 
 
 - Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, Security Group 에 대해 데이터 소스를 참조 합니다.
-- [data.tf](./alb-web/data.tf) : WAF Public ALB 가 참조하는 데이터 소스
-- [main.tf](./alb-web/main.tf) : WAF Public ALB 리소스 생성
+- [data.tf](./alb-web/data.tf) : WEB Internal ALB 가 참조하는 데이터 소스
+- [main.tf](./alb-web/main.tf) : WEB Internal ALB 리소스 생성
 
 
 ### Build Internal ALB
@@ -91,8 +91,8 @@ Internal NLB 의 이름은 was 로 정의 하고, lbwas 서브넷과 연결 되�
 네트워크 트래픽 중 8080 포트는로 유입되는 데이터는 was-8080tg 대상 그룹으로, 3306 포트로 유입되는 데이터는 rds-3306 대상 그룹으로 각각 전달 합니다.
 
 - Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, Security Group 에 대해 데이터 소스를 참조 합니다.
-- [data.tf](./alb-web/data.tf) : WAF Public ALB 가 참조하는 데이터 소스
-- [main.tf](./alb-web/main.tf) : WAF Public ALB 리소스 생성
+- [data.tf](./nlb-was/data.tf) : WAS Internal NLB 가 참조하는 데이터 소스
+- [main.tf](./nlb-was/main.tf) : WAS Internal NLB 가 참조하는 데이터 소스
 
 ### Build Internal NLB
 
@@ -104,8 +104,6 @@ terraform init
 terraform plan
 terraform apply
 ```
-
-
 
 
 ALB 구성은 [tfmodule-aws-alb](../../docs/tfmodule-aws-alb.md) 테라폼 모듈을 참고 하세요.

@@ -31,11 +31,15 @@ module "vpc" {
     "waf-a1", "waf-b1",
     "web-a1", "web-b1",
     "was-a1", "was-b1",
+    "lbweb-a1", "lbweb-b1",
+    "lbwas-a1", "lbwas-b1",
   ]
   private_subnets      = [
     "${var.vpc_cidr}.31.0/24", "${var.vpc_cidr}.32.0/24",
     "${var.vpc_cidr}.41.0/24", "${var.vpc_cidr}.42.0/24",
     "${var.vpc_cidr}.51.0/24", "${var.vpc_cidr}.52.0/24",
+    "${var.vpc_cidr}.61.0/24", "${var.vpc_cidr}.62.0/24",
+    "${var.vpc_cidr}.71.0/24", "${var.vpc_cidr}.72.0/24",
   ]
 
   private_subnet_tags = {

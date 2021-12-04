@@ -36,6 +36,7 @@ module "ctx" {
 ### Dependencies Module
 - Context 모듈은 [tfmodule-context](./tfmodule-context.md) 가이드를 참고 하세요.
 - VPC 모듈은 [tfmodule-aws-vpc](./tfmodule-aws-vpc.md) 가이드를 참고 하세요.
+- Launch Template 모듈은 [tfmodule-aws-launchtemplate](./tfmodule-aws-launchtemplate.md) 가이드를 참고 하세요.
 
 
 ## Input Variables

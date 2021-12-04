@@ -1,5 +1,6 @@
-# tfmodule-aws-lt
-EC2 Launch Template 을 생성하는 테라폼 모듈 입니다.
+# tfmodule-aws-launchtemplate
+
+AWS EC2 인스턴스 론칭을 위한 시작 템플릿을 생성 하는 테라폼 모듈 입니다.
 
 ## Usage
 
@@ -31,10 +32,10 @@ module "lt_tomcat" {
   source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-launchtemplate-v1.0.0"
 
   context          = var.context
-  image_id         = data.aws_ami.node.id
+  name             = "tomcat"
+  image_id         = data.aws_ami.tomcat.id
   instance_type    = "t3.small"
-  name             = "ecs-node"
-  user_data_base64 = base64encode(data.template_file.node.rendered)
+  user_data_base64 = base64encode(data.template_file.tomcat.rendered)
 }
 
 module "ctx" {

@@ -1,18 +1,23 @@
 module "ctx" {
-  source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-context"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-context-v1.0.0"
 
   context = {
     aws_profile = "terran"
     region      = "ap-northeast-2"
-    project     = "apple5t"
-    environment = "VPC-1Tier"
-    owner       = "owner.dx@bespinglobal.com"
+    project     = "apple"
+    environment = "Education"
+    owner       = "owner@bespinglobal.com"
     team_name   = "Devops Transformation"
-    team        = "DX"
-    cost_center = "20211129"
+    team        = "DevOps"
+    cost_center = "20211120"
     domain      = "simitsme.ml"
-    pri_domain  = "apple5t.local"
+    pri_domain  = "apple.local"
   }
+
+  additional_tags = {
+    WAFTemplate = "VPC 5-Tier with WAF"
+  }
+
 }
 
 output "context" {

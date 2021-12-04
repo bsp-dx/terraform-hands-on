@@ -13,14 +13,14 @@ ECS 작업 정의를 위해 IAM 및 ECS Task 를 구성 합니다.
 
 ## Code
 
-- [ecs-tasks/main.tf](./ecs-tasks/main.tf) - ECS 애플리케이션을 위한 작업을 구성 합니다.
-- [ecs-tasks/iam.tf](./ecs-tasks/iam.tf) - ECS 클러스터가 작업 실행을 위한 execution 롤 을 구성 합니다.
+- [ecs-tasks/main.tf](ecs-tasks/main.tf) - ECS 애플리케이션을 위한 작업을 구성 합니다.
+- [ecs-tasks/iam.tf](ecs-tasks/iam.tf) - ECS 클러스터가 작업 실행을 위한 execution 롤 을 구성 합니다.
 
 ## Build
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd terraform-hands-on/samples/waf-5tier/ecs-tasks
+cd terraform-hands-on/waf-templates/5-tier-vpc-waf/ecs-tasks
 
 terraform init
 terraform plan

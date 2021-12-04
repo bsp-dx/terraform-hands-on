@@ -3,7 +3,7 @@ module "ctx" {
 }
 
 module "alb_web" {
-  source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-aws-alb"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-alb-v1.0.0"
 
   context            = module.ctx.context
   lb_name            = "web"

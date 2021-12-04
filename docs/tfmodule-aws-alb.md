@@ -6,15 +6,15 @@ AWS (Application | Network) Load Balancer 를 생성 하는 테라폼 모듈 입
 
 ```
 module "alb" {
-  source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-aws-alb"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-alb-v1.0.0"
 
   context  = module.ctx.context
   lb_name = "pub"
   load_balancer_type = "application"
 
-  vpc_id          = "${vpc_id}"
-  subnets         = [ "${subnet_id}" ]
-  security_groups = [ "${security_group_id}" ]
+  vpc_id          = module.vpc.vpc_id
+  subnets         = toset(module.vpc.public_subnets)
+  security_groups = [ module.vpc.default_security_group_id ]
 
   http_tcp_listeners = [ {
       port        = 80
@@ -26,19 +26,27 @@ module "alb" {
         status_code = "HTTP_301"
       }
     },]
+  
+  depends_on = [module.vpc]
+}
+
+module "vpc" {
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-vpc-v..."
+  context  = module.ctx.context
+  # ... You need to define resources for vpc ...
 }
 
 module "ctx" {
-  source = "../context"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-context-..."
+  context = {  
+    # ... You need to define context variables ...
+  }
 }
 ```
 
-아래의 context 모듈은 클라우드 리소스를 정의 하는데 표준화된 네이밍 정책과 태깅 정책을 지원 하고, 다른 테라폼 모듈에 의해 일관성있는 데이터소스 참조 모델을 제공 합니다.  
-```
-module "ctx" {
-  source = "../context"
-}
-```
+### Dependencies Module
+- Context 모듈은 [tfmodule-context](./tfmodule-context.md) 가이드를 참고 하세요.
+- VPC 모듈은 [tfmodule-aws-vpc](./tfmodule-aws-vpc.md) 가이드를 참고 하세요.
 
 ## ALB Sample
 ```
@@ -75,7 +83,7 @@ module "nlb" {
 ## Target Group Sample
 
 target_groups 속성 값의 설정을 통해 하나 이상의 대상 그룹을 정의 할 수 있습니다.  
-target_group 의 하위 구성 요소로 health_check, targets 인스턴스를 선택적으로 구성 가능 합니다. 
+target_group 의 하위 구성 요소로 health_check, targets 인스턴스를 선택적으로 구성 가능 합니다.
 
 ```
   target_groups = [
@@ -125,7 +133,7 @@ target_group 의 하위 구성 요소로 health_check, targets 인스턴스를 �
 
 ## HTTP Listener Sample
 
-로드 밸런서에 서비스 포트를 생성 합니다. 서비스 포트에 알맞은 타겟 그룹으로 보내거나 적절한 Response 응답을 정의 할 수 있습니다. 
+로드 밸런서에 서비스 포트를 생성 합니다. 서비스 포트에 알맞은 타겟 그룹으로 보내거나 적절한 Response 응답을 정의 할 수 있습니다.
 
 ```
   [
@@ -159,7 +167,7 @@ target_group 의 하위 구성 요소로 health_check, targets 인스턴스를 �
 
 ## HTTP Listener Rules Sample
 
-http_tcp_listener 리스너에 대한 라우팅 룰을 설정 합니다. 
+http_tcp_listener 리스너에 대한 라우팅 룰을 설정 합니다.
 
 ```
   [
@@ -292,8 +300,9 @@ http_tcp_listener 리스너에 대한 라우팅 룰을 설정 합니다.
 | target_groups | 로드 밸런서의 대상 그룹을 정의 합니다. | any | [sample](#target-group-sample) | No |
 | security_groups | 로드 밸런서에 연결된 보안 그룹을 정의 합니다. | list(string) | ["sg-edcd9784", "sg-edcd9785"] | No |
 | vpc_id | 로드 밸런서가 배치될 VPC 아이디 입니다. | string | - | No |
+| context | 프로젝트에 관한 리소스를 생성 및 관리에 참조 되는 정보로 표준화된 네이밍 정책 및 리소스를 위한 속성 정보를 포함하며 이를 통해 데이터 소스 참조에도 활용됩니다. | object({}) | - | Yes |
 | _____________________________________ | ____________________________________________________ | _ | _ | _ |
- 
+
 
 ## Outputs
 

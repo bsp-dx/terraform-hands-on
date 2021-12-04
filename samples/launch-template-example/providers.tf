@@ -4,7 +4,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 3.65.0"
+      version = "~> 3.65.0"
     }
   }
 }
@@ -14,3 +14,7 @@ provider "aws" {
   profile                 = "terran"
   shared_credentials_file = "$HOME/.aws/credentials"
 }
+
+data "aws_caller_identity" "current" {}
+data "aws_partition" "current" {}
+

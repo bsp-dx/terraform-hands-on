@@ -7,7 +7,7 @@ data "aws_availability_zones" "this" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-aws-vpc"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-vpc-v1.0.0"
 
   context = module.ctx.context
   cidr    = "${var.vpc_cidr}.0.0/16"

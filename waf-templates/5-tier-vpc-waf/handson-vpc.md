@@ -4,7 +4,7 @@
 
 ## 아키텍처 
 
-![vpc5tier-n1](../images/waf-vpc5tier-n1.png)
+![vpc5tier-n1](../../samples/images/waf-vpc5tier-n1.png)
 
 ## 주요 리소스
 
@@ -31,10 +31,10 @@ VPC 서비스를 구성하는 주요 리소스는 다음과 같습니다.
 
 
 ## Code
-- [vpc/main.tf](./vpc/main.tf) - tfmodule-aws-vpc 모듈을 임포트 하여 VPC 를 구성 합니다. 
-- [vpc/providers.tf](./vpc/providers.tf) - Terraform 버전과 AWS 프로바이더를 정의 합니다. 
-- [vpc/variables.tf](./vpc/variables.tf) - vpc_cidr 변수를 정의 합니다. 
-- [vpc/terraform.tfvars](./vpc/variables.tf) - vpc_cidr 변수값을 정의 합니다.
+- [vpc/main.tf](vpc/main.tf) - tfmodule-aws-vpc 모듈을 임포트 하여 VPC 를 구성 합니다. 
+- [vpc/providers.tf](vpc/providers.tf) - Terraform 버전과 AWS 프로바이더를 정의 합니다. 
+- [vpc/variables.tf](vpc/variables.tf) - vpc_cidr 변수를 정의 합니다. 
+- [vpc/terraform.tfvars](vpc/variables.tf) - vpc_cidr 변수값을 정의 합니다.
 
 
 ## Build
@@ -43,7 +43,7 @@ VPC 서비스를 구성하는 주요 리소스는 다음과 같습니다.
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd terraform-hands-on/samples/waf-5tier/vpc
+cd terraform-hands-on/waf-templates/5-tier-vpc-waf/vpc
 
 terraform init
 terraform plan

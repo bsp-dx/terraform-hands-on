@@ -6,7 +6,7 @@ AWS VPC 서비스를 생성 하는 테라폼 모듈 입니다.
 
 ```
 module "vpc" {
-  source = "git::https://github.com/bsp-dx/eks-apps-handson//module/tfmodule-aws-vpc"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-vpc-v1.0.0"
 
   context = module.ctx.context
   cidr    = "171.2.0.0/16"
@@ -32,16 +32,16 @@ data "aws_availability_zones" "this" {
 }
 
 module "ctx" {
-  source = "../context"
+  source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-context-..."
+  context = {  
+    # ... You need to define context variables ...
+  }
 }
 ```
 
-아래의 context 모듈은 클라우드 리소스를 정의 하는데 표준화된 네이밍 정책과 태깅 정책을 지원 하고, 다른 테라폼 모듈에 의해 일관성있는 데이터소스 참조 모델을 제공 합니다.  
-```
-module "ctx" {
-  source = "../context"
-}
-```
+### Dependencies Module
+- Context 모듈은 [tfmodule-context](./tfmodule-context.md) 가이드를 참고 하세요.
+
 
 ## NAT Gateway 구성 시나리오
 VPC 내의 서비스 및 인스턴스(EC2)가 외부의 www 자원을 액세스 하기 위해 배치 합니다.

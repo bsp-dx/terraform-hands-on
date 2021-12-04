@@ -4,7 +4,7 @@
 
 ## 아키텍처 
 
-![vpc5tier-n1](../images/waf-ecs5tier-n2.png)
+![vpc5tier-n1](../../samples/images/waf-ecs5tier-n2.png)
 
 ## 주요 리소스
 ECS Fargate 클러스터를 구성하는 주요 리소스는 다음과 같습니다.
@@ -27,15 +27,15 @@ ECS Fargate 클러스터를 구성하는 주요 리소스는 다음과 같습니
 ECS Fargate 클러스터 구성 자체는 AWS Region 만 있으면 되며, VPC 에 종속적이지 않습니다.
 
 ## Code
-- [ecs-fargate/main.tf](./ecs-fargate/main.tf) - tfmodule-aws-ecs 모듈을 임포트 하여 ECS Fargate 클러스터를 구성 합니다.
-- [ecs-fargate/nginx-service.tf](./ecs-fargate/nginx-service.tf) - nginx-service 애플리케이션을 시작 합니다. 
-- [ecs-fargate/data.tf](./ecs-fargate/data.tf) - nginx-service 애플리케이션 구성에 필요한 데이터소스를 참조 합니다.
+- [ecs-fargate/main.tf](ecs-fargate/main.tf) - tfmodule-aws-ecs 모듈을 임포트 하여 ECS Fargate 클러스터를 구성 합니다.
+- [ecs-fargate/nginx-service.tf](ecs-fargate/nginx-service.tf) - nginx-service 애플리케이션을 시작 합니다. 
+- [ecs-fargate/data.tf](ecs-fargate/data.tf) - nginx-service 애플리케이션 구성에 필요한 데이터소스를 참조 합니다.
 
 ## Build ECS Fargate
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd terraform-hands-on/samples/waf-5tier/ecs-fargate
+cd terraform-hands-on/waf-templates/5-tier-vpc-waf/ecs-fargate
 
 terraform init
 terraform plan

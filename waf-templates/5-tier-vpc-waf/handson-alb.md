@@ -4,7 +4,7 @@
 
 ## 아키텍처 
 
-![vpc5tier-n1](../images/waf-vpc5tier-n1.png)
+![vpc5tier-n1](../../samples/images/waf-vpc5tier-n1.png)
 
 ### 서비스 시나리오는 아래와 같습니다.  
 외부 클라이언트의 요청은 Domain - Route 53 을 통해 IGW 으로 진입 합니다. 
@@ -48,15 +48,15 @@ Public ALB 전요 보안 그룹을 생성 합니다.
 유입되는 정상적인 트래픽은 web-80tg 대상 그룹으로 전달 합니다.
 
 - Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, ACM 대해 데이터 소스를 참조 합니다.
-- [data.tf](./alb-waf/data.tf) : WAF Public ALB 가 참조하는 데이터 소스 
-- [main.tf](./alb-waf/main.tf) : WAF Public ALB 리소스 생성
+- [data.tf](alb-waf/data.tf) : WAF Public ALB 가 참조하는 데이터 소스 
+- [main.tf](alb-waf/main.tf) : WAF Public ALB 리소스 생성
 
 
 ### Build Public ALB
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd terraform-hands-on/samples/waf-5tier/alb-waf
+cd terraform-hands-on/waf-templates/5-tier-vpc-waf/alb-waf
 
 terraform init
 terraform plan
@@ -70,15 +70,15 @@ Internal ALB 의 이름은 web 으로 정의 하고, lbweb 서브넷과 연결 �
 Internal ALB 전용 보안 그룹을 생성 합니다. 
 
 - Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, Security Group 에 대해 데이터 소스를 참조 합니다.
-- [data.tf](./alb-web/data.tf) : WEB Internal ALB 가 참조하는 데이터 소스
-- [main.tf](./alb-web/main.tf) : WEB Internal ALB 리소스 생성
+- [data.tf](alb-web/data.tf) : WEB Internal ALB 가 참조하는 데이터 소스
+- [main.tf](alb-web/main.tf) : WEB Internal ALB 리소스 생성
 
 
 ### Build Internal ALB
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd terraform-hands-on/samples/waf-5tier/alb-web
+cd terraform-hands-on/waf-templates/5-tier-vpc-waf/alb-web
 
 terraform init
 terraform plan
@@ -91,14 +91,14 @@ Internal NLB 의 이름은 was 로 정의 하고, lbwas 서브넷과 연결 되�
 네트워크 트래픽 중 8080 포트는로 유입되는 데이터는 was-8080tg 대상 그룹으로, 3306 포트로 유입되는 데이터는 rds-3306 대상 그룹으로 각각 전달 합니다.
 
 - Context 모듈(module.ctx)을 통해 네이밍 규칙에 기반한 VPC, Subent, Security Group 에 대해 데이터 소스를 참조 합니다.
-- [data.tf](./nlb-was/data.tf) : WAS Internal NLB 가 참조하는 데이터 소스
-- [main.tf](./nlb-was/main.tf) : WAS Internal NLB 가 참조하는 데이터 소스
+- [data.tf](nlb-was/data.tf) : WAS Internal NLB 가 참조하는 데이터 소스
+- [main.tf](nlb-was/main.tf) : WAS Internal NLB 가 참조하는 데이터 소스
 
 ### Build Internal NLB
 
 ```shell
 git clone https://github.com/bsp-dx/terraform-hands-on.git
-cd terraform-hands-on/samples/waf-5tier/nlb-was
+cd terraform-hands-on/waf-templates/5-tier-vpc-waf/nlb-was
 
 terraform init
 terraform plan

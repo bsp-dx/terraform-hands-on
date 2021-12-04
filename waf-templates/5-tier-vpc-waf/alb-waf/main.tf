@@ -3,7 +3,7 @@ module "ctx" {
 }
 
 # IGW to WAF
-module "alb_public" {
+module "alb_waf" {
   source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-alb-v1.0.0"
 
   context            = module.ctx.context

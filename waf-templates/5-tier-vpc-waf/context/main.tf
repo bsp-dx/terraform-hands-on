@@ -15,7 +15,8 @@ module "ctx" {
   }
 
   additional_tags = {
-    WAFTemplate = "VPC 5-Tier with WAF"
+    "bsp:WAF-Template" = "VPC 5-Tier with Web Firewall"
+    "bsp:WAF-Version"  = "1.0"
   }
 
 }

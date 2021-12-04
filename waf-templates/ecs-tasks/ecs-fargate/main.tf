@@ -1,5 +1,5 @@
 module "ctx" {
-  source = "../context"
+  source = "../../5-tier-vpc-waf/context"
 }
 
 module "ecs_fargate" {

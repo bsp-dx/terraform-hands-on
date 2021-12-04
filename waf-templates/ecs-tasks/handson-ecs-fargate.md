@@ -4,7 +4,7 @@
 
 ## 아키텍처 
 
-![vpc5tier-n1](../../samples/images/waf-ecs5tier-n2.png)
+![vpc5tier-n1](../images/waf-ecs5tier-n2.png)
 
 ## 주요 리소스
 ECS Fargate 클러스터를 구성하는 주요 리소스는 다음과 같습니다.

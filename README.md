@@ -6,33 +6,28 @@
 
 ## [로컬 개발 환경 구성 - Mac OS](./docs/setup-macos.md)
 
-
 ## [IAM 사용자 계정 추가](./docs/aws-iam.md)
 
 ## [Domain 발급 및 ACM 구성](./docs/aws-acm.md)
 
-## 5 Tier 표준 아키텍처를 구성 합니다.
+## [5 Tier 표준 아키텍처를 구성](./waf-templates/5-tier-vpc-waf/guide-5tier-vpc-waf.md)
 VPC 및 로드 밸런서와 같은 주요한 리소스 구성을 시작으로 애플리케이션 서비스가 가능한 서비스 Stack 을 하나씩 추가 합니다. 
-
-### [5 Tier VPC 구성](waf-templates/5-tier-vpc-waf/handson-vpc.md)  
-
-#### [VPC 테라폼 모듈 참고](./docs/tfmodule-aws-vpc.md)
-
-### [5 Tier ALB 구성](waf-templates/5-tier-vpc-waf/handson-alb.md)  
-
-#### [ALB 테라폼 모듈 참고](./docs/tfmodule-aws-alb.md)
-
 
 ## ECS Fargate 클러스터를 구성
 5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성하고 애플리케이션을 배포 합니다.
 
-### [ECS Task 작업 정의](waf-templates/5-tier-vpc-waf/handson-ecs-tasks.md)
+### [ECS Task 작업 정의](waf-templates/ecs-tasks/handson-ecs-tasks.md)
 
-### [5 Tier ECS Fargate 구성](waf-templates/5-tier-vpc-waf/handson-ecs-fargate.md)
-
-#### [ECS 테라폼 모듈 참고](./docs/tfmodule-aws-ecs.md)
+### [5 Tier ECS Fargate 구성](waf-templates/ecs-tasks/handson-ecs-fargate.md)
 
 
-### Appendix
 
-#### [EC2 Keypair 등록 참고](./docs/aws-keypair.md)
+### 테라폼 모듈 참고
+| 모듈 명  |    설명    | 버전 |
+| ------ | --------- | ------- |
+| azs  |	A list of availability zones specified as argument to this module  |
+
+
+## Appendix
+
+### [EC2 Keypair 등록 참고](./docs/aws-keypair.md)

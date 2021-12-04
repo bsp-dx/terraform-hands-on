@@ -231,7 +231,9 @@ resource "aws_vpn_connection_route" "azure" {
 | flow_log_cloudwatch_log_group_retention_in_days | VPC Flow Logs 용 Cloud CloudWatch 로그 그룹의 데이터 보관일 수 입니다. | number | 90 | No |
 | flow_log_cloudwatch_log_group_kms_key_id | VPC Flow Logs 용 Cloud CloudWatch 로그 그룹 적재에 사용할 KMS 암호화 키 입니다. | string | - | No |
 | flow_log_max_aggregation_interval | VPC Flow Logs 의 최대 수집 간격 입니다. | number | 600 | No |
-| _____________________________________ | ____________________________________________________ | _ | _ | _ |
+| create_private_domain_hostzone | Route53 private host-zone 에 private domain 레코드를 생성할지 여부입니다.. | bool | false | No |
+| context | 프로젝트에 관한 리소스를 생성 및 관리에 참조 되는 정보로 표준화된 네이밍 정책 및 리소스를 위한 속성 정보를 포함하며 이를 통해 데이터 소스 참조에도 활용됩니다. | object({}) | - | Yes |
+| _________________________________ | ____________________________________________________ | _ | _ | _ |
  
 
 ## Outputs

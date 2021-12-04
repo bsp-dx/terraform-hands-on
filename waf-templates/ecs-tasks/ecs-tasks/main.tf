@@ -1,5 +1,5 @@
 module "ctx" {
-  source = "../context"
+  source = "../../5-tier-vpc-waf/context"
 }
 
 resource "aws_ecs_task_definition" "nginx" {

@@ -1,8 +1,7 @@
 # AWS 클라우드 서비스 구축 핸즈-온 
 테라폼의 주요 모듈을 통해 AWS Cloud 서비스를 구성하고 애플리케이션을 인터넷 서비스로 론칭 하는 Hands On 프로젝트 입니다.
 
-## Hands On Workflow
-다음의 순서대로 가이드를 참고 하세요.
+# Table of Contents
 
 ## [로컬 개발 환경 구성 - Mac OS](./docs/setup-macos.md)
 
@@ -10,15 +9,17 @@
 
 ## [Domain 발급 및 ACM 구성](./docs/aws-acm.md)
 
-## [5 Tier 표준 아키텍처를 구성](./waf-templates/5-tier-vpc-waf/guide-5tier-vpc-waf.md)
+## [5 Tier VPC 표준 아키텍처를 구성](./waf-templates/5-tier-vpc-waf/guide-5tier-vpc-waf.md)
 VPC 및 로드 밸런서와 같은 주요한 리소스 구성을 시작으로 애플리케이션 서비스가 가능한 서비스 Stack 을 하나씩 추가 합니다. 
 
-## ECS Fargate 클러스터를 구성
-5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성하고 애플리케이션을 배포 합니다.
+## [ECS Task 작업 정의](waf-templates/ecs-tasks/ecs-tasks.md)
+ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS 작업 정의를 해야 합니다.    
+생성된 ECS 작업들은 Region 에서 관리 되며 여러 서비스가 이를 활용 할 수 있습니다.  
 
-### [ECS Task 작업 정의](waf-templates/ecs-tasks/handson-ecs-tasks.md)
+## [5 Tier ECS Fargate 표준 아키텍처 구성](./waf-templates/5-tier-ecs-fargate/guide-5-tier-ecs-fargate.md)
+5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성하고 애플리케이션을 배포 합니다.  
+구성에 앞서 ECS Task 작업 정의를 사전에 준비 하여야 합니다.
 
-### [5 Tier ECS Fargate 구성](waf-templates/ecs-tasks/handson-ecs-fargate.md)
 
 
 ### 테라폼 모듈 참고

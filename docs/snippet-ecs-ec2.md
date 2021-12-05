@@ -41,6 +41,10 @@ Fargate 와의 다른 점은 용량 공급자를 추가 하기 위해 시작 템
 본 예제는 기능 검증을 목적으로 최소로 구성 되었으므로 개발 및 운영 환경에 적용하지 마시기 바랍니다.
 
 ```
+data "aws_iam_role" "ecs_task_execution_role" {
+  name = "ecsTaskExecutionRole"
+}
+
 module "ctx" {
   source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-context-v1.0.0"
 
@@ -161,7 +165,7 @@ resource "aws_ecs_task_definition" "nginx" {
   family                   = "nginx-test"
   requires_compatibilities = ["FARGATE", "EC2"]
   network_mode             = "awsvpc"
-  execution_role_arn       = module.ecs.ecs_task_execution_role_arn
+  execution_role_arn       = data.aws_iam_role.ecs_task_execution_role.arn
   cpu                      = 512
   memory                   = 1024
   container_definitions    = <<EOF
@@ -281,3 +285,5 @@ resource "aws_ecs_service" "nginx_service" {
 }
 
 ```
+
+* [ecs_task_execution_role](./snippet-ecs-task-execution-role.md) 데이터소스 참조

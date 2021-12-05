@@ -1,25 +1,12 @@
-data "aws_partition" "current" {}
-
-resource "aws_iam_role" "this" {
-  name               = "myTestInstanceProfileRole"
-  path               = "/ecs/"
-  assume_role_policy = <<EOF
-{
-  "Version": "2008-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": ["ec2.amazonaws.com"]
-      },
-      "Effect": "Allow"
-    }
-  ]
-}
-EOF
-
+locals {
+  ecs_task_role_name = "ecsTaskExecutionRole"
 }
 
-output "test_value" {
-  value = aws_iam_role.this.arn
+data "aws_iam_role" "ecs_task_execution_role" {
+  name = "ecsTaskExecutionRole"
 }
+
+output "value" {
+  value = data.aws_iam_role.ecs_task_execution_role.arn
+}
+

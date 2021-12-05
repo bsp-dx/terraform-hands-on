@@ -39,8 +39,10 @@ module "ctx" {
 - ASG 모듈은 [tfmodule-aws-autoscaling](./tfmodule-aws-autoscaling.md) 가이드를 참고 하세요.
 - Launch Template 모듈은 [tfmodule-aws-launchtemplate](./tfmodule-aws-launchtemplate.md) 가이드를 참고 하세요.
 
-### [ECS Fargate 클러스터 구성 참고](./snippet-ecs-fargate.md)
-### [ECS EC2 클러스터 구성 참고](./snippet-ecs-ec2.md)
+### Example
+- [ECS Fargate 클러스터 구성 참고](./snippet-ecs-fargate.md)
+- [ECS EC2 클러스터 구성 참고](./snippet-ecs-ec2.md)
+- [ECS Task Execution Role 구성 참고](./snippet-ecs-task-execution-role.md)
 
 ## ECS Architecture
 ECS 아키텍처를 구성하는 주요 컴포넌트 관계와 그 역할을 이해 합니다.
@@ -93,6 +95,8 @@ EC2 시작 유형은 Amazon ECS 클러스터를 등록하고 직접 관리하는
 | tags | ECR 저장소의 태그 속성을 정의 합니다. | obejct({}) | <pre>{<br>    Project = "simple"<br>    Environment = "Test"<br>    Team = "DX"<br>    Owner = "symplesims@email.com"<br>}</pre> | Yes |
 | name | ECS 클러스터 이름을 정의 합니다. | string | - | No |
 | container_insights | ECS 클러스터의 컨테이너 정보를 식별하기 위해 CloudWatch 로그 그룹에 적재 할지 여부입니다. | bool | false | No |
+| middle_name | ECS 클러스터의 중간 이름을 설정 합니다. (여러개의 ECS 클러스터를 구성 할 때 정의 합니다.) | string | - | No |
+| create_ecs_task_execution_role | 현재 프로젝트를 위한 별도의 ECS 작업 실행 역할을 생성할지 여부입니다. | bool | false | No |
 | context | 프로젝트에 관한 리소스를 생성 및 관리에 참조 되는 정보로 표준화된 네이밍 정책 및 리소스를 위한 속성 정보를 포함하며 이를 통해 데이터 소스 참조에도 활용됩니다. | object({}) | - | Yes |
 | __________________________________ | ______________________________________________________ | ___ | ___ | ___ |
 

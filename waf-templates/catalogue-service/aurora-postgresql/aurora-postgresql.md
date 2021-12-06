@@ -4,27 +4,8 @@
 
 Amazon Aurora 는 클라우드용으로 구축된 MySQL 및 PostgreSQL 호환의 관계형 데이터베이스 엔진을 제공 합니다.
 
-## Build
 
-VPC 및 database 를 위한 서브넷이 구성 되어 있다면 [tfmodule-aws-rds-aurora](../../../docs/tfmodule-aws-rds-aurora.md) 모듈을 통해 자동화 배포를 할 수 있습니다.
-
-### Checkout
-
-git clone 명령으로 프로젝트를 체크 아웃 합니다.
-
-```
-git clone https://github.com/bsp-dx/terraform-hands-on.git
-```
-
-### 프로젝트 환경 변수 설정
-
-WAF_PROJECT_HOME 프로젝트 홈 경로를 위한 환경 변수를 설정 합니다.
-
-```
-export WAF_PROJECT_HOME=$(pwd -P)/terraform-hands-on/waf-templates/catalogue-service/aurora-postgresql
-```
-
-### 데이터 소스 참조
+## 데이터 소스 참조
 
 Aurora RDS 서비스를 구성 하려면, 먼저 DB 인스턴스가 배치될 VPC 와 서브넷이 준비 되어야 합니다.
 
@@ -37,6 +18,7 @@ Aurora RDS 서비스를 구성 하려면, 먼저 DB 인스턴스가 배치될 VP
 | aws_subnet  | was   | WAS 서브넷 CICD 식별을 위한 데이터 소스를 참조 합니다. | data.aws_subnet.was | 
 
 - DB 인스턴스에 액세스 할 수 있는 네트워크 영역읠 WAS 애픝리케이션이 배치되어 있는 서브넷으로 한정 하였습니다.
+
 ```
 data "aws_subnets" "was" {
   filter {
@@ -56,9 +38,27 @@ data "aws_subnet" "was" {
 
 ```
 
-### Aurora RDS
+## Build
 
-[main.tf](nginx-main.tf) 코드를 메인으로 Aurora RDS 서비스를 생성합니다.
+VPC 및 database 를 위한 서브넷이 구성 되어 있어야 하며, 데이터 소스로 참조할 수 있어야 합니다.
+
+### Checkout
+
+git clone 명령으로 프로젝트를 체크 아웃 합니다.
+
+```
+git clone https://github.com/bsp-dx/terraform-hands-on.git
+```
+
+### 프로젝트 환경 변수 설정
+
+WAF_PROJECT_HOME 프로젝트 홈 경로를 위한 환경 변수를 설정 합니다.
+
+```
+export WAF_PROJECT_HOME=$(pwd -P)/terraform-hands-on/waf-templates/catalogue-service/aurora-postgresql
+```
+
+### Build Aurora RDS
 
 ```shell
 cd ${WAF_PROJECT_HOME}
@@ -67,6 +67,10 @@ terraform init
 terraform plan
 terraform apply
 ```
+
+- [context/main.tf](./context/main.tf) 컨텍스트 정보를 참조 합니다.
+- [main.tf](./main.tf) 코드를 메인으로 Aurora RDS 서비스를 생성합니다.
+
 
 ## Destroy
 

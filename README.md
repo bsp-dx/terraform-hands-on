@@ -22,8 +22,17 @@ ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS �
 - [Deploy nginx-service to ECS Fargate](waf-templates/5-tier-ecs-fargate/deploy-service-to-ecs.md)
 사용자 애플리케이션 서비스(nginx-service)를 ECS Fargate 클러스터에 배포 합니다.  
 
+__________
 
-### 테라폼 모듈 참고
+## Catalogue Service 구성
+WAF 표준 아키텍처 구성 이후 고객의 요청에 대응하여 AWS 서비스를 구성 하는 경우에 활용 하는 템플릿 입니다.
+
+### [Aurora RDS 구성](./waf-templates/catalogue-service/aurora-postgresql/aurora-postgresql.md)
+
+
+__________
+
+## 테라폼 모듈 참고
 
 | 모듈 명 |    설명    |
 | ------              | --------- |
@@ -33,7 +42,10 @@ ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS �
 | [tfmodule-aws-alb](./docs/tfmodule-aws-alb.md)  |	AWS (Application | Network) Load Balancer 를 생성 하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-autoscaling](./docs/tfmodule-aws-autoscaling.md)  |	EC2 Autoscaling 그룹을 생성하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-ecs](./docs/tfmodule-aws-ecs.md)  |	ECS (EC2 | Fargate) 클러스터 서비스를 생성하는 테라폼 모듈 입니다. |
+| [tfmodule-aws-rds-aurora](./docs/tfmodule-aws-rds-aurora.md)  |	AWS [Aurora RDS](https://aws.amazon.com/ko/rds/aurora) 플랫폼 서비스를 생성 하는 테라폼 모듈 입니다. |
 
+
+__________
 
 ## Appendix
 

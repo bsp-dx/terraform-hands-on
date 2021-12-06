@@ -17,7 +17,7 @@ Aurora RDS 서비스를 구성 하려면, 먼저 DB 인스턴스가 배치될 VP
 | aws_subnets | was   | WAS 서브넷 데이터 소스를 참조 합니다. | data.aws_subnets.was.ids | 
 | aws_subnet  | was   | WAS 서브넷 CICD 식별을 위한 데이터 소스를 참조 합니다. | data.aws_subnet.was | 
 
-- DB 인스턴스에 액세스 할 수 있는 네트워크 영역읠 WAS 애픝리케이션이 배치되어 있는 서브넷으로 한정 하였습니다.
+- VPC 의 WAS 애픝리케이션이 배치되어 있는 서브 네트워크 영역만 DB 인스턴스에 액세스 할 수 있도록 허용 하였습니다.
 
 ```
 data "aws_subnets" "was" {

@@ -97,7 +97,7 @@ module "alb_waf" {
   source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-aws-alb-v1.0.0"
 
   context            = module.ctx.context
-  lb_name            = "pub-waf"
+  lb_name            = "waf"
   load_balancer_type = "application"
 
   vpc_id          = module.vpc.vpc_id

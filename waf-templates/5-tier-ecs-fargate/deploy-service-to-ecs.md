@@ -2,7 +2,7 @@
 
 ECS 클러스터에 사용자 애플리케이션을 론칭(배포)을 합니다.
 
-배포할 사용자 애플리케이션은 ECS 작업 정의로 사전에 구성 되어 있어야 하며 **[ecs-tasks](../ecs-tasks/ecs-tasks.md)** 를 참조 하세요.
+배포할 사용자 애플리케이션은 ECS 작업 정의로 사전에 구성 되어 있어야 하며 **[ecs-tasks](../catalogue-service/ecs-tasks/ecs-tasks.md)** 를 참조 하세요.
 
 ## Build
 

@@ -12,20 +12,21 @@
 ## [5 Tier VPC 표준 아키텍처를 구성](./waf-templates/5-tier-vpc-waf/guide-5tier-vpc-waf.md)
 VPC 및 로드 밸런서와 같은 주요한 리소스 구성을 시작으로 애플리케이션 서비스가 가능한 서비스 Stack 을 하나씩 추가 합니다. 
 
-## [ECS Task 작업 정의](waf-templates/ecs-tasks/ecs-tasks.md)
-ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS 작업 정의를 해야 합니다.    
-생성된 ECS 작업들은 Region 에서 관리 되며 여러 서비스가 이를 활용 할 수 있습니다.  
-
 ## [5 Tier ECS Fargate 표준 아키텍처 구성](./waf-templates/5-tier-ecs-fargate/guide-5-tier-ecs-fargate.md)
-5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성하고 애플리케이션을 배포 합니다.  
+5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성합니다.
 
-- [Deploy nginx-service to ECS Fargate](waf-templates/5-tier-ecs-fargate/deploy-service-to-ecs.md)
-사용자 애플리케이션 서비스(nginx-service)를 ECS Fargate 클러스터에 배포 합니다.  
+- [Deploy nginx-service to ECS Fargate](./waf-templates/5-tier-ecs-fargate/deploy-service-to-ecs.md)
+ECS Fargate 클러스터에 사용자 애플리케이션 서비스(nginx-service)를 배포 합니다.
+ECS 서비스를 배포 하려면 먼저 [ECS Task 작업 정의](./#ecs-task-작업-정의)가 구성 되어 있어야 합니다.
 
 __________
 
 ## Catalogue Service 구성
 WAF 표준 아키텍처 구성 이후 고객의 요청에 대응하여 AWS 서비스를 구성 하는 경우에 활용 하는 템플릿 입니다.
+
+### [ECS Task 작업 정의](waf-templates/catalogue-service/ecs-tasks/ecs-tasks.md)
+ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS 작업 정의를 해야 합니다.    
+생성된 ECS 작업들은 Region 에서 관리 되며 여러 서비스가 이를 활용 할 수 있습니다.
 
 ### [Aurora RDS 구성](./waf-templates/catalogue-service/aurora-postgresql/aurora-postgresql.md)
 

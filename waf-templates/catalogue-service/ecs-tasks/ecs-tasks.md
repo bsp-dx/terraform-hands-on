@@ -14,7 +14,7 @@ ECS 작업 정의를 위해 IAM 및 ECS Task 를 구성 합니다.
 
 ## Input Variables
 
-정의 생성 여부는 [terraform.tfvars](./tasks/terraform.tfvars) 값을 통해 컨트롤 할 수 있습니다.
+정의 생성 여부는 [terraform.tfvars](tasks/terraform.tfvars) 값을 통해 컨트롤 할 수 있습니다.
 
 | Name | Description | Type | Example | Required |
 |------|-------------|------|---------|:--------:|
@@ -40,13 +40,13 @@ git clone https://github.com/bsp-dx/terraform-hands-on.git
 WAF_PROJECT_HOME 프로젝트 홈 경로를 위한 환경 변수를 설정 합니다.
 
 ```
-export WAF_PROJECT_HOME=$(pwd -P)/terraform-hands-on/waf-templates/ecs-tasks
+export WAF_PROJECT_HOME=$(pwd -P)/terraform-hands-on/waf-templates/catalogue-service/ecs-tasks/tasks
 ```
 
 ### ECS Task Definition
 
 ```
-cd ${WAF_PROJECT_HOME}/tasks
+cd $WAF_PROJECT_HOME
 
 terraform init
 terraform plan
@@ -58,7 +58,7 @@ terraform apply
 ECS Task Definition 을 제거 합니다.
 
 ```
-cd ${WAF_PROJECT_HOME}/tasks
+cd $WAF_PROJECT_HOME
 
 terraform deploy
 ```

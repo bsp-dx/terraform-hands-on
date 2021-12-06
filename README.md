@@ -40,9 +40,9 @@ __________
 | [tfmodule-context](./docs/tfmodule-context.md)  |	클라우드 서비스 및 리소스를 정의 하는데 표준화된 네이밍 정책과 태깅 규칙을 지원 하고, 일관성있는 데이터소스 참조 모델을 제공 합니다. |
 | [tfmodule-aws-vpc](./docs/tfmodule-aws-vpc.md)  |	AWS VPC 서비스를 생성 하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-launchtemplate](./docs/tfmodule-aws-launchtemplate.md)  |	AWS EC2 인스턴스 론칭을 위한 시작 템플릿을 생성 하는 테라폼 모듈 입니다. |
-| [tfmodule-aws-alb](./docs/tfmodule-aws-alb.md)  |	AWS (Application | Network) Load Balancer 를 생성 하는 테라폼 모듈 입니다. |
+| [tfmodule-aws-alb](./docs/tfmodule-aws-alb.md)  |	AWS (Application or Network) Load Balancer 를 생성 하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-autoscaling](./docs/tfmodule-aws-autoscaling.md)  |	EC2 Autoscaling 그룹을 생성하는 테라폼 모듈 입니다. |
-| [tfmodule-aws-ecs](./docs/tfmodule-aws-ecs.md)  |	ECS (EC2 | Fargate) 클러스터 서비스를 생성하는 테라폼 모듈 입니다. |
+| [tfmodule-aws-ecs](./docs/tfmodule-aws-ecs.md)  |	ECS (EC2 or Fargate) 클러스터 서비스를 생성하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-rds-aurora](./docs/tfmodule-aws-rds-aurora.md)  |	AWS [Aurora RDS](https://aws.amazon.com/ko/rds/aurora) 플랫폼 서비스를 생성 하는 테라폼 모듈 입니다. |
 
 

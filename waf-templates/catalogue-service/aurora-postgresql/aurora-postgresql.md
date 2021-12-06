@@ -1,9 +1,8 @@
 ## Aurora RDS
 
-[Aurora RDS](https://aws.amazon.com/ko/rds/aurora) 서비스를 구성 합니다. 
+[Aurora RDS](https://aws.amazon.com/ko/rds/aurora) 서비스를 구성 합니다.
 
 Amazon Aurora 는 클라우드용으로 구축된 MySQL 및 PostgreSQL 호환의 관계형 데이터베이스 엔진을 제공 합니다.
-
 
 ## 데이터 소스 참조
 
@@ -52,11 +51,15 @@ git clone https://github.com/bsp-dx/terraform-hands-on.git
 
 ### 프로젝트 환경 변수 설정
 
-WAF_PROJECT_HOME 프로젝트 홈 경로를 위한 환경 변수를 설정 합니다.
+- WAF_PROJECT_HOME 프로젝트 홈 경로를 위한 환경 변수를 설정 합니다.
+- Aurora RDS 마스터 DB 패스워드를 외부에 노출 되지 않도록 "TF_VAR_aurora_db_password" 환경 변수를 설정 합니다.
 
 ```
 export WAF_PROJECT_HOME=$(pwd -P)/terraform-hands-on/waf-templates/catalogue-service/aurora-postgresql
+exprot TF_VAR_aurora_db_password="your_rds_password"
 ```
+
+참고로, TF_VAR_aurora_db_password 환경 변수는 테라폼 내부적으로 aurora_db_password 변수로 바인딩 됩니다.
 
 ### Build Aurora RDS
 
@@ -71,7 +74,6 @@ terraform apply
 - [context/main.tf](./context/main.tf) 컨텍스트 정보를 참조 합니다.
 - [main.tf](./main.tf) 코드를 메인으로 Aurora RDS 서비스를 생성합니다.
 
-
 ## Destroy
 
 Aurora RDS 를 삭제 합니다.
@@ -83,6 +85,7 @@ terraform destroy
 ```
 
 ## References
+
 Aurora RDS 서비스 구성에 필요한 테라폼 자동화 모듈은 다음과 같습니다.
 
 - [Context](../../../docs/tfmodule-context.md) 테라폼 모듈 가이드

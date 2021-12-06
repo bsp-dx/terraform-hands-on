@@ -18,8 +18,9 @@ ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS �
 
 ## [5 Tier ECS Fargate 표준 아키텍처 구성](./waf-templates/5-tier-ecs-fargate/guide-5-tier-ecs-fargate.md)
 5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성하고 애플리케이션을 배포 합니다.  
-구성에 앞서 ECS Task 작업 정의를 사전에 준비 하여야 합니다.
 
+### [Deploy service to ECS Cluster](waf-templates/5-tier-ecs-fargate/deploy-service-to-ecs.md)
+사용자 애플리케이션 서비스를 ECS 클러스터에 배포 합니다.  
 
 
 ### 테라폼 모듈 참고

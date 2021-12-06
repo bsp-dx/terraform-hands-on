@@ -38,7 +38,7 @@ EOF
   depends_on = [module.ecs_role]
 }
 
-resource "aws_ecs_task_definition" "golang_api" {
+resource "aws_ecs_task_definition" "golang-service" {
   count                    = var.create_golang_api ? 1 : 0
   family                   = "golang-service"
   requires_compatibilities = ["FARGATE", "EC2"]

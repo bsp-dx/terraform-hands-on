@@ -106,8 +106,6 @@ export WAF_PROJECT_HOME=$(pwd -P)/terraform-hands-on/waf-templates/5-tier-ecs-fa
 ### ECS Fargate
 [ecs-fargate/main.tf](ecs-fargate/main.tf) 코드를 메인으로 ECS Fargate 관련 전체 서비스를 한번에 구성 합니다.
 
-- 중요) ECS 클러스터에서 서비스 론칭을 하기 위해선 **[ECS 작업 정의](../ecs-tasks/ecs-tasks.md)** 를 사전에 생성 해야만 합니다.
-
 ```shell
 
 cd ${WAF_PROJECT_HOME}/ecs-fargate

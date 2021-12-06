@@ -15,9 +15,9 @@ VPC 및 로드 밸런서와 같은 주요한 리소스 구성을 시작으로 �
 ## [5 Tier ECS Fargate 표준 아키텍처 구성](./waf-templates/5-tier-ecs-fargate/guide-5-tier-ecs-fargate.md)
 5 Tier 표준 아키텍처 위에 ECS Fargate 클러스터를 구성합니다.
 
-- [Deploy nginx-service to ECS Fargate](./waf-templates/5-tier-ecs-fargate/deploy-service-to-ecs.md)
-ECS Fargate 클러스터에 사용자 애플리케이션 서비스(nginx-service)를 배포 합니다.
-ECS 서비스를 배포 하려면 먼저 [ECS Task 작업 정의](./#ecs-task-작업-정의)가 구성 되어 있어야 합니다.
+### [Deploy nginx-service to ECS Fargate](./waf-templates/5-tier-ecs-fargate/deploy-service-to-ecs.md)
+- ECS Fargate 클러스터에 사용자 애플리케이션 서비스(nginx-service)를 배포 합니다.  
+- ECS 서비스를 배포 하려면 먼저 [ECS Task 작업 정의](#ecs-task-작업-정의)가 구성 되어 있어야 합니다.
 
 __________
 

@@ -30,12 +30,14 @@ ECS 클러스터에 서비스를 론칭 하기 위해선 사전에 먼저 ECS �
 
 ### [Aurora RDS 구성](./waf-templates/catalogue-service/aurora-postgresql/aurora-postgresql.md)
 
+### [Elasticache Redis 구성](./waf-templates/catalogue-service/elasticache-redis/elasticache-redis.md)
+
 
 __________
 
 ## 테라폼 모듈 참고
 
-| 모듈 명 |    설명    |
+| 모듈 명               |    설명    |
 | ------              | --------- |
 | [tfmodule-context](./docs/tfmodule-context.md)  |	클라우드 서비스 및 리소스를 정의 하는데 표준화된 네이밍 정책과 태깅 규칙을 지원 하고, 일관성있는 데이터소스 참조 모델을 제공 합니다. |
 | [tfmodule-aws-vpc](./docs/tfmodule-aws-vpc.md)  |	AWS VPC 서비스를 생성 하는 테라폼 모듈 입니다. |
@@ -44,6 +46,7 @@ __________
 | [tfmodule-aws-autoscaling](./docs/tfmodule-aws-autoscaling.md)  |	EC2 Autoscaling 그룹을 생성하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-ecs](./docs/tfmodule-aws-ecs.md)  |	ECS (EC2 or Fargate) 클러스터 서비스를 생성하는 테라폼 모듈 입니다. |
 | [tfmodule-aws-rds-aurora](./docs/tfmodule-aws-rds-aurora.md)  |	AWS [Aurora RDS](https://aws.amazon.com/ko/rds/aurora) 플랫폼 서비스를 생성 하는 테라폼 모듈 입니다. |
+| [tfmodule-aws-elasticache-redis](./docs/tfmodule-aws-elasticache-redis.md)  |	AWS AWS [Elasticache-Redis](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html) 플랫폼 서비스를 생성 하는 테라폼 모듈 입니다. |
 
 
 __________

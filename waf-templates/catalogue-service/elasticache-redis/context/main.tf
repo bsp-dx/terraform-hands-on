@@ -1,7 +1,7 @@
 module "ctx" {
   source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-context-v1.0.0"
 
-  context = {
+  /*context = {
     aws_profile = "terran"
     region      = "ap-northeast-2"
     project     = "apple"
@@ -12,7 +12,20 @@ module "ctx" {
     cost_center = "20211120"
     domain      = "academyiac.cf"
     pri_domain  = "apple.local"
+  }*/
+
+  context = {
+    aws_profile  = "terran"
+    region       = "ap-northeast-2"
+    project      = "melon"
+    environment = "Education"
+    owner       = "owner@bespinglobal.com"
+    team        = "DevOps"
+    cost_center = "20211120"
+    domain      = "academyiac.cf"
+    pri_domain  = "melon.local"
   }
+
 
   additional_tags = {
     "bsp:WAF-Template" = "VPC 5-Tier with Web Firewall"

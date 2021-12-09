@@ -1,3 +1,7 @@
+data "aws_availability_zones" "this" {
+  state = "available"
+}
+
 module "ctx" {
   source = "git::https://github.com/bsp-dx/edu-terraform-aws.git?ref=tfmodule-context-v1.0.0"
 
@@ -12,10 +16,6 @@ module "ctx" {
     domain      = "academyiac.cf"
     pri_domain  = "hamburger.local"
   }
-}
-
-data "aws_availability_zones" "this" {
-  state = "available"
 }
 
 module "vpc" {
